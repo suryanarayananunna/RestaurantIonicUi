@@ -1,3 +1,89 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <!-- <ion-header>
+    <ion-toolbar>
+      <ion-title>Home</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="true"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar> 
+  </ion-header> -->
+  <ion-menu side="start" menuId="custom" contentId="main" class="my-custom-menu">
+    <ion-header>
+      <ion-toolbar >
+        <ion-title>Restaurant</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+
+                <ion-list>
+                  <ion-menu-toggle autoHide="false">
+                    <ion-item *ngFor="let pages of default" [routerLink]="[pages.url]">
+                      <ion-icon slot="start" [name]="pages.icon"></ion-icon>
+                      <ion-label>
+                      {{pages.title}}
+                      </ion-label>
+                    </ion-item>
+                  </ion-menu-toggle>
+                </ion-list>
+
+                <ion-list>
+                  <ion-list-header>
+                    <ion-label>Categories</ion-label>
+                  </ion-list-header>
+                  <ion-menu-toggle autoHide="false">
+                    <ion-item *ngFor="let pages of categories" [routerLink]="[pages.url]">
+                      <ion-icon slot="start" [name]="pages.icon"></ion-icon>
+                      <ion-label>
+                      {{pages.title}}
+                      </ion-label>
+                    </ion-item>
+                  </ion-menu-toggle>
+                </ion-list>
+
+
+                <ion-list>
+                  <ion-list-header>
+                    <ion-label>News</ion-label>
+                  </ion-list-header>
+                  <ion-menu-toggle autoHide="false">
+                    <ion-item *ngFor="let pages of news" [routerLink]="[pages.url]">
+                      <ion-icon slot="start" [name]="pages.icon"></ion-icon>
+                      <ion-label>
+                      {{pages.title}}
+                      </ion-label>
+                    </ion-item>
+                  </ion-menu-toggle>
+                </ion-list>
+
+                <ion-list>
+                  <ion-list-header>
+                    <ion-label>Facebook</ion-label>
+                  </ion-list-header>
+                  <ion-menu-toggle autoHide="false">
+                    <ion-item *ngFor="let pages of facebook" [routerLink]="[pages.url]">
+                      <ion-icon slot="start" [name]="pages.icon"></ion-icon>
+                      <ion-label>
+                      {{pages.title}}
+                      </ion-label>
+                    </ion-item>
+                  </ion-menu-toggle>
+                </ion-list>
+
+                <ion-list>
+                  <ion-list-header>
+                    <ion-label>Other</ion-label>
+                  </ion-list-header>
+                  <ion-menu-toggle autoHide="false">
+                    <ion-item *ngFor="let pages of other" [routerLink]="[pages.url]">
+                      <ion-icon slot="start" [name]="pages.icon"></ion-icon>
+                      <ion-label>
+                      {{pages.title}}
+                      </ion-label>
+                    </ion-item>
+                  </ion-menu-toggle>
+                </ion-list>
+
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
